@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local runtime state — contains the encrypted key vault and session secret.
+/data/
+/arl-secret.key
+.env
+.env.local
+.env*.local
+.DS_Store

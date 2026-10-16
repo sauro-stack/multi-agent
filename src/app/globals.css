@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lab-void: #04060a;
+  --color-lab-bg: #070b11;
+  --color-lab-panel: #0b1118;
+  --color-lab-panel-2: #0f1620;
+  --color-lab-border: #1b2532;
+  --color-lab-border-bright: #2a3a4d;
+  --color-lab-muted: #7d8ea3;
+  --color-lab-text: #dbe6f2;
+  --color-lab-accent: #35e0a1;
+  --color-lab-accent-dim: #1c8f68;
+  --color-lab-cyan: #4cc9f0;
+  --color-lab-violet: #a78bfa;
+  --color-lab-amber: #f5b642;
+  --color-lab-red: #f2555a;
+
+  --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-lab-border);
+  }
+
+  html,
+  body {
+    background-color: var(--color-lab-void);
+    color: var(--color-lab-text);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(900px 500px at 12% -10%, rgba(53, 224, 161, 0.07), transparent 60%),
+      radial-gradient(800px 500px at 92% 0%, rgba(76, 201, 240, 0.06), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(53, 224, 161, 0.28);
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e2937;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2c3b4d;
+  }
+}
+
+@utility grid-noise {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@utility text-glow {
+  text-shadow: 0 0 14px rgba(53, 224, 161, 0.45);
+}
+
+@keyframes lab-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes lab-scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(400%);
+  }
+}
+
+.animate-lab-pulse {
+  animation: lab-pulse 1.6s ease-in-out infinite;
+}
+
+.animate-lab-scan {
+  animation: lab-scan 4.5s linear infinite;
+}
+
+/* Markdown rendered inside the live feed. */
+.md-body {
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.md-body p {
+  margin: 0.4rem 0;
+}
+.md-body h1,
+.md-body h2,
+.md-body h3 {
+  font-weight: 600;
+  color: #eaf3ff;
+  margin: 0.7rem 0 0.35rem;
+}
+.md-body h1 {
+  font-size: 1rem;
+}
+.md-body h2 {
+  font-size: 0.95rem;
+}
+.md-body h3 {
+  font-size: 0.9rem;
+}
+.md-body ul,
+.md-body ol {
+  margin: 0.35rem 0 0.35rem 1.1rem;
+  list-style: disc;
+}
+.md-body ol {
+  list-style: decimal;
+}
+.md-body li {
+  margin: 0.15rem 0;
+}
+.md-body code {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  background: rgba(76, 201, 240, 0.1);
+  border: 1px solid rgba(76, 201, 240, 0.18);
+  border-radius: 4px;
+  padding: 0.05rem 0.3rem;
+}
+.md-body strong {
+  color: #f4f9ff;
+}
+.md-body blockquote {
+  border-left: 2px solid var(--color-lab-border);
+  padding-left: 0.7rem;
+  color: var(--color-lab-muted);
+}
+.md-body a {
+  color: var(--color-lab-cyan);
+  text-decoration: underline;
+}
